@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -42,9 +43,21 @@ namespace CurrencyChecker.Views
             }
         }
 
-        private void FetchCurrencyData(object sender, RoutedEventArgs e)
+        private async void FetchCurrencyData(object sender, RoutedEventArgs e)
         {
-            GetCurrencyCheckViewModel().updateCurrencyList();
+            var warningBox = new MessageDialog("Pick a currency to check!");
+            warningBox.Title = "Warning";
+            warningBox.Commands.Add(new UICommand("Ok"));
+
+            if(GetCurrencyCheckViewModel().ChoosenCurrency == null)
+            {
+                await warningBox.ShowAsync();
+            }
+            else
+            {
+                GetCurrencyCheckViewModel().updateCurrencyList();
+            }    
+
         }
     }
 }

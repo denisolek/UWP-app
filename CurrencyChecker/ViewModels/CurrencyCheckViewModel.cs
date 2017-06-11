@@ -20,6 +20,17 @@ namespace CurrencyChecker.ViewModels
             set { availableCurrencies = value; }
         }
 
+        private string choosenCurrency;
+        public string ChoosenCurrency
+        {
+            get { return choosenCurrency; }
+            set
+            {
+                choosenCurrency = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         private ObservableCollection<Currency> currencyList;
         public ObservableCollection<Currency> CurrencyList
         {
@@ -34,6 +45,7 @@ namespace CurrencyChecker.ViewModels
         async Task<string> GetCurrencyList()
         {
             HttpClient client = new HttpClient();
+            string test = ChoosenCurrency;
             Task<string> getStringTask = client.GetStringAsync("http://api.fixer.io/latest?base=PLN");
             string urlContents = await getStringTask;
             return urlContents;
@@ -41,30 +53,28 @@ namespace CurrencyChecker.ViewModels
 
         public CurrencyCheckViewModel()
         {
-            GetCurrencyList();
             AvailableCurrencies = new List<string>();
             AvailableCurrencies.AddRange(new List<string> { "AUD", "BGN", "BRL", "CAD", "CHF", "CNY", "CZK", "DKK", "GBP", "HKD", "HRK", "HUF", "IDR", "ILS", "INR", "JPY", "KRW", "MXN", "MYR", "NOK", "NZD", "PHP", "RON", "RUB", "SEK", "SGD", "THB", "TRY", "USD", "ZAR", "EUR", "PLN" });
         }
 
-        public void RatesToList(Rates rates)
+        public void ParseToCurrencyList(string json)
         {
+            dynamic jobject = JsonConvert.DeserializeObject(json);
+
             CurrencyList = new ObservableCollection<Currency>();
 
-            CurrencyList.Add(new Currency { Name = "AUD", Rate = rates.AUD });
-            CurrencyList.Add(new Currency { Name = "BGN", Rate = rates.BGN });
-            CurrencyList.Add(new Currency { Name = "BRL", Rate = rates.BRL });
-            CurrencyList.Add(new Currency { Name = "CAD", Rate = rates.CAD });
-            CurrencyList.Add(new Currency { Name = "CHF", Rate = rates.CHF });
+            foreach (var item in jobject.rates)
+            {
+                var testName = item.Name;
+                var testValue = item.Value;
+                CurrencyList.Add(new Currency { Name = testName, Rate = testValue });
+            }
         }
 
         public async void updateCurrencyList()
         {
             string apiResponse = await GetCurrencyList();
-
-            BaseCurrency baseCurrency = JsonConvert.DeserializeObject<BaseCurrency>(apiResponse);
-
-            Rates rates = baseCurrency.rates;
-            RatesToList(rates);
+            ParseToCurrencyList(apiResponse);
         }
     }
 }

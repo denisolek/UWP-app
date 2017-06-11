@@ -13,11 +13,11 @@
     </Page.Resources>
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ComboBox ItemsSource="{Binding AvailableCurrencies}" HorizontalAlignment="Left" Margin="394,124,0,0" VerticalAlignment="Top" Width="224" Height="60" Header="Select currency to check" PlaceholderText="ex. USD"/>
-        <TextBlock HorizontalAlignment="Left" Margin="421,69,0,0" TextWrapping="Wrap" Text="Currency checker" VerticalAlignment="Top" FontSize="20" FontFamily="Lato" FontWeight="Bold"/>
-        <Button Content="BACK" HorizontalAlignment="Left" Margin="718,57,0,0" VerticalAlignment="Top" Height="45" Width="100" Click="Navigate_Back"/>
-        <Button Content="CHECK" HorizontalAlignment="Left" Margin="444,203,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.83,-0.109" Width="119" Click="FetchCurrencyData"/>
-        <ListBox ItemsSource="{Binding CurrencyList}" HorizontalAlignment="Left" Height="289" Margin="394,260,0,0" VerticalAlignment="Top" Width="224">
+        <ComboBox ItemsSource="{Binding AvailableCurrencies}"  SelectedValue="{Binding ChoosenCurrency, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="224" Height="60" Header="Select currency to check" PlaceholderText="ex. USD" Margin="0,100,0,0"/>
+        <TextBlock  TextWrapping="Wrap" Text="Currency checker" VerticalAlignment="Top" FontSize="20" FontFamily="Lato" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,50,0,0"/>
+        <Button Content="BACK" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" Width="100" Click="Navigate_Back" Margin="600,0,0,700"/>
+        <Button Content="CHECK" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="-0.83,-0.109" Width="119" Click="FetchCurrencyData" Margin="0,0,0,500"/>
+        <ListBox ItemsSource="{Binding CurrencyList}" HorizontalAlignment="Center" Height="289" VerticalAlignment="Center" Width="224">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
