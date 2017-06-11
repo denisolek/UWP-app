@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CurrencyChecker.Models
 {
-    class Currency
+    public class Currency
     {
         public string Name { get; set; }
         public double Rate { get; set; }

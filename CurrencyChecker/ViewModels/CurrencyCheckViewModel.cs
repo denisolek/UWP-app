@@ -13,63 +13,7 @@ namespace CurrencyChecker.ViewModels
 {
     class CurrencyCheckViewModel : ViewModel
     {
-        private List<string> availableCurrencies;
-        public List<string> AvailableCurrencies
-        {
-            get { return availableCurrencies; }
-            set { availableCurrencies = value; }
-        }
-
-        private string choosenCurrency;
-        public string ChoosenCurrency
-        {
-            get { return choosenCurrency; }
-            set
-            {
-                choosenCurrency = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        private ObservableCollection<Currency> currencyList;
-        public ObservableCollection<Currency> CurrencyList
-        {
-            get { return currencyList; }
-            set
-            {
-              currencyList = value;
-              NotifyPropertyChanged();
-            }
-        }
-
-        async Task<string> GetCurrencyList()
-        {
-            HttpClient client = new HttpClient();
-            Task<string> getStringTask = client.GetStringAsync("http://api.fixer.io/latest?base=" + ChoosenCurrency);
-            string urlContents = await getStringTask;
-            return urlContents;
-        }
-
-        public CurrencyCheckViewModel()
-        {
-            AvailableCurrencies = new List<string>();
-            AvailableCurrencies.AddRange(new List<string> { "AUD", "BGN", "BRL", "CAD", "CHF", "CNY", "CZK", "DKK", "EUR", "GBP", "HKD", "HRK", "HUF", "IDR", "ILS", "INR", "JPY", "KRW", "MXN", "MYR", "NOK", "NZD", "PHP", "PLN", "RON", "RUB", "SEK", "SGD", "THB", "TRY", "USD", "ZAR"});
-        }
-
-        public void ParseToCurrencyList(string json)
-        {
-            dynamic jobject = JsonConvert.DeserializeObject(json);
-
-            CurrencyList = new ObservableCollection<Currency>();
-
-            foreach (var item in jobject.rates)
-            {
-                var testName = item.Name;
-                var testValue = item.Value;
-                CurrencyList.Add(new Currency { Name = testName, Rate = testValue });
-            }
-        }
-
+        
         public async void UpdateCurrencyList()
         {
             string apiResponse = await GetCurrencyList();
