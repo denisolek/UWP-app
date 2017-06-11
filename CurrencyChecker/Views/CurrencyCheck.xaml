@@ -5,12 +5,27 @@
     xmlns:local="using:CurrencyChecker.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:CurrencyChecker.Converters"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <converters:ValueConverter x:Key="ValueConverter"/>
+    </Page.Resources>
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <ComboBox ItemsSource="{Binding AvailableCurrencies}" HorizontalAlignment="Left" Margin="394,124,0,0" VerticalAlignment="Top" Width="224" Height="60" Header="Select currency to check" PlaceholderText="ex. USD"/>
         <TextBlock HorizontalAlignment="Left" Margin="421,69,0,0" TextWrapping="Wrap" Text="Currency checker" VerticalAlignment="Top" FontSize="20" FontFamily="Lato" FontWeight="Bold"/>
         <Button Content="BACK" HorizontalAlignment="Left" Margin="718,57,0,0" VerticalAlignment="Top" Height="45" Width="100" Click="Navigate_Back"/>
-        <Button Content="CHECK" HorizontalAlignment="Left" Margin="444,203,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.83,-0.109" Width="119"/>
+        <Button Content="CHECK" HorizontalAlignment="Left" Margin="444,203,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.83,-0.109" Width="119" Click="FetchCurrencyData"/>
+        <ListBox ItemsSource="{Binding CurrencyList}" HorizontalAlignment="Left" Height="289" Margin="394,260,0,0" VerticalAlignment="Top" Width="224">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Rate, Converter={StaticResource ValueConverter}, ConverterParameter=abc}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Page>

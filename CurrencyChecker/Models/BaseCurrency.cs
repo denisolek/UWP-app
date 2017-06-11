@@ -8,7 +8,7 @@ namespace CurrencyChecker.Models
 {
     public class BaseCurrency
     {
-        public string name { get; set; }
+        public string @base { get; set; }
         public string date { get; set; }
         public Rates rates { get; set; }
     }

@@ -41,5 +41,10 @@ namespace CurrencyChecker.Views
                 this.Frame.GoBack();
             }
         }
+
+        private void FetchCurrencyData(object sender, RoutedEventArgs e)
+        {
+            GetCurrencyCheckViewModel().updateCurrencyList();
+        }
     }
 }
