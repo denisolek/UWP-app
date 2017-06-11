@@ -55,7 +55,7 @@ namespace CurrencyChecker.Views
             }
             else
             {
-                GetCurrencyCheckViewModel().updateCurrencyList();
+                GetCurrencyCheckViewModel().UpdateCurrencyList();
             }    
 
         }

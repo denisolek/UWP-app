@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="Converters\ValueConverter.cs" />
     <Compile Include="Models\Currency.cs" />
+    <Compile Include="ViewModels\CurrencyCalcViewModel.cs" />
     <Compile Include="ViewModels\CurrencyCheckViewModel.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="Views\About.xaml.cs">

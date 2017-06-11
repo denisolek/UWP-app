@@ -9,9 +9,9 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock HorizontalAlignment="Left" Margin="421,69,0,0" TextWrapping="Wrap" Text="Currency calculator" VerticalAlignment="Top" FontSize="20" FontFamily="Lato" FontWeight="Bold"/>
-        <ComboBox HorizontalAlignment="Left" Margin="331,134,0,0" VerticalAlignment="Top" Width="224" Height="60" Header="Select currency to calculate" PlaceholderText="ex. USD"/>
-        <TextBox HorizontalAlignment="Left" Margin="331,217,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Header="Enter the ammount to calcualte" Width="224" PlaceholderText="ex. 10"/>
+        <ComboBox ItemsSource="{Binding AvailableCurrencies}" SelectedValue="{Binding ChoosenCurrency, Mode=TwoWay}" HorizontalAlignment="Left" Margin="331,134,0,0" VerticalAlignment="Top" Width="224" Height="60" Header="Select currency to calculate" PlaceholderText="ex. USD"/>
+        <TextBox Text="{Binding Path=AmountToCalculate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="331,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Header="Enter the ammount to calcualte" Width="224" PlaceholderText="ex. 10"/>
         <Button Content="BACK" HorizontalAlignment="Left" Margin="718,57,0,0" VerticalAlignment="Top" Height="45" Width="100" Click="Navigate_Back"/>
-        <Button Content="CALCULATE" HorizontalAlignment="Left" Margin="582,170,0,0" VerticalAlignment="Top" Height="90" Width="101"/>
+        <Button Content="CALCULATE" HorizontalAlignment="Left" Margin="582,170,0,0" VerticalAlignment="Top" Height="90" Width="101" Click="Calculate"/>
     </Grid>
 </Page>

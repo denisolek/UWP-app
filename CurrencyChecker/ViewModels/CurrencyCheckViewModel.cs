@@ -70,7 +70,7 @@ namespace CurrencyChecker.ViewModels
             }
         }
 
-        public async void updateCurrencyList()
+        public async void UpdateCurrencyList()
         {
             string apiResponse = await GetCurrencyList();
             ParseToCurrencyList(apiResponse);
