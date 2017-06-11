@@ -1,0 +1,25 @@
+﻿<Page
+    x:Class="CurrencyChecker.Views.About"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CurrencyChecker.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button Content="BACK" HorizontalAlignment="Left" Margin="718,57,0,0" VerticalAlignment="Top" Height="45" Width="100" Click="Navigate_Back"/>
+        <TextBlock HorizontalAlignment="Left" Margin="479,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Lato" FontWeight="Bold">
+            <Run Text="About"/>
+            <LineBreak/>
+            <Run/>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="439,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Height="42" Width="123">
+            <Run Text="Denis Olek"/>
+            <LineBreak/>
+            <Run/>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="413,257,0,0" TextWrapping="Wrap" Text="denis.olek@gmail.com" VerticalAlignment="Top" FontSize="18"/>
+
+    </Grid>
+</Page>

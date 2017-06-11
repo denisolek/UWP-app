@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="CurrencyChecker.Views.Menu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CurrencyChecker.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock HorizontalAlignment="Left" Margin="360,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="289" AllowDrop="True" Text="CURRENCY APP" FontFamily="Lato" FontSize="36" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="259,136,0,0" TextWrapping="Wrap" Text="Check and calculate current currency value !" VerticalAlignment="Top" FontSize="24"/>
+        <Button Content="CHECK" HorizontalAlignment="Left" Margin="360,273,0,0" VerticalAlignment="Top" Width="289" Height="53" FontSize="20" FontWeight="Bold" FontFamily="Lato" Click="Navigate_CurrencyCheck"/>
+        <Button Content="CALCULATE" HorizontalAlignment="Left" Margin="360,366,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="289" Height="53" FontFamily="Lato" Click="Navigate_CurrencyCalc"/>
+        <Button Content="ABOUT" HorizontalAlignment="Left" Margin="360,458,0,0" VerticalAlignment="Top" Height="53" Width="289" FontWeight="Bold" FontFamily="Lato" FontSize="20" Click="Navigate_About"/>
+
+    </Grid>
+</Page>
