@@ -69,9 +69,10 @@ namespace CurrencyChecker.Views
                 if(!IsTextAllowed(GetCurrencyCalcViewModel().AmountToCalculate))
                 {
                     await numbersOnlyBox.ShowAsync();
+                } else
+                {
+                    GetCurrencyCalcViewModel().Calculate();
                 }
-
-                GetCurrencyCalcViewModel().Calculate();
             }
         }
     }
