@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="CurrencyChecker.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CurrencyChecker"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:CurrencyChecker.Converters"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <converters:AgeConverter x:Key="AgeConverter"/>
+    </Page.Resources>
+
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!--<TextBlock Text="{Binding Title}" />
+        <TextBox Text="{Binding Title, Mode=TwoWay}"/>-->
+        <ListBox ItemsSource="{Binding Collection}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}"
+                                   FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Age, Converter={StaticResource AgeConverter}, ConverterParameter=abc}"
+                                   Margin="10, 0, 0, 0"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Add"
+                Click="OnClick"/>
+    </StackPanel>
+</Page>
