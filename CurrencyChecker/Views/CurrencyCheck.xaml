@@ -8,8 +8,9 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ComboBox HorizontalAlignment="Left" Margin="394,124,0,0" VerticalAlignment="Top" Width="224" Height="60" Header="Select currency to check" PlaceholderText="ex. USD"/>
+        <ComboBox ItemsSource="{Binding AvailableCurrencies}" HorizontalAlignment="Left" Margin="394,124,0,0" VerticalAlignment="Top" Width="224" Height="60" Header="Select currency to check" PlaceholderText="ex. USD"/>
         <TextBlock HorizontalAlignment="Left" Margin="421,69,0,0" TextWrapping="Wrap" Text="Currency checker" VerticalAlignment="Top" FontSize="20" FontFamily="Lato" FontWeight="Bold"/>
         <Button Content="BACK" HorizontalAlignment="Left" Margin="718,57,0,0" VerticalAlignment="Top" Height="45" Width="100" Click="Navigate_Back"/>
+        <Button Content="CHECK" HorizontalAlignment="Left" Margin="444,203,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.83,-0.109" Width="119"/>
     </Grid>
 </Page>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CurrencyChecker.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,12 @@ namespace CurrencyChecker.Views
         public CurrencyCheck()
         {
             this.InitializeComponent();
+            DataContext = new CurrencyCheckViewModel();
+        }
+
+        private CurrencyCheckViewModel GetCurrencyCheckViewModel()
+        {
+            return DataContext as CurrencyCheckViewModel;
         }
 
         private void Navigate_Back(object sender, RoutedEventArgs e)
