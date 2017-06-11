@@ -45,8 +45,7 @@ namespace CurrencyChecker.ViewModels
         async Task<string> GetCurrencyList()
         {
             HttpClient client = new HttpClient();
-            string test = ChoosenCurrency;
-            Task<string> getStringTask = client.GetStringAsync("http://api.fixer.io/latest?base=PLN");
+            Task<string> getStringTask = client.GetStringAsync("http://api.fixer.io/latest?base=" + ChoosenCurrency);
             string urlContents = await getStringTask;
             return urlContents;
         }
@@ -54,7 +53,7 @@ namespace CurrencyChecker.ViewModels
         public CurrencyCheckViewModel()
         {
             AvailableCurrencies = new List<string>();
-            AvailableCurrencies.AddRange(new List<string> { "AUD", "BGN", "BRL", "CAD", "CHF", "CNY", "CZK", "DKK", "GBP", "HKD", "HRK", "HUF", "IDR", "ILS", "INR", "JPY", "KRW", "MXN", "MYR", "NOK", "NZD", "PHP", "RON", "RUB", "SEK", "SGD", "THB", "TRY", "USD", "ZAR", "EUR", "PLN" });
+            AvailableCurrencies.AddRange(new List<string> { "AUD", "BGN", "BRL", "CAD", "CHF", "CNY", "CZK", "DKK", "GBP", "HKD", "HRK", "HUF", "IDR", "ILS", "INR", "JPY", "KRW", "MXN", "MYR", "NOK", "NZD", "PHP", "PLN", "RON", "RUB", "SEK", "SGD", "THB", "TRY", "USD", "ZAR", "EUR"});
         }
 
         public void ParseToCurrencyList(string json)
