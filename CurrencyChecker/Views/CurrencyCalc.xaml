@@ -13,20 +13,36 @@
     </Page.Resources>
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock HorizontalAlignment="Left" Margin="421,69,0,0" TextWrapping="Wrap" Text="Currency calculator" VerticalAlignment="Top" FontSize="20" FontFamily="Lato" FontWeight="Bold"/>
-        <ComboBox ItemsSource="{Binding AvailableCurrencies}" SelectedValue="{Binding ChoosenCurrency, Mode=TwoWay}" HorizontalAlignment="Left" Margin="331,134,0,0" VerticalAlignment="Top" Width="224" Height="60" Header="Select currency to calculate" PlaceholderText="ex. USD"/>
-        <TextBox Text="{Binding Path=AmountToCalculate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="331,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Header="Enter the ammount to calcualte" Width="224" PlaceholderText="ex. 10"/>
-        <Button Content="BACK" HorizontalAlignment="Left" Margin="718,57,0,0" VerticalAlignment="Top" Height="45" Width="100" Click="Navigate_Back"/>
-        <Button Content="CALCULATE" HorizontalAlignment="Left" Margin="582,170,0,0" VerticalAlignment="Top" Height="90" Width="101" Click="Calculate"/>
-        <ListBox ItemsSource="{Binding CalculatedCurrencyList}" HorizontalAlignment="Left" Height="384" Margin="331,324,0,0" VerticalAlignment="Top" Width="352">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
-                        <TextBlock Text="{Binding Rate, Converter={StaticResource ValueConverter}, ConverterParameter=abc}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Content="BACK" Height="90" Width="180" Click="Navigate_Back" />
+        </StackPanel>
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock TextWrapping="Wrap" Text="Currency calculator" FontSize="48" FontFamily="Lato" FontWeight="Bold"/>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="0,0,0,100">
+            <ComboBox ItemsSource="{Binding AvailableCurrencies}"  SelectedValue="{Binding ChoosenCurrency, Mode=TwoWay}" Width="400" Height="60" Header="Select currency to calculate" PlaceholderText="ex. USD" Margin="0,0,0,30"/>
+            <TextBox Text="{Binding Path=AmountToCalculate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Header="Enter the ammount to calcualte" Width="398" PlaceholderText="ex. 10"/>
+            <Button Content="CALCULATE" Width="398" Click="Calculate" HorizontalAlignment="Center" Margin="0,30,0,0"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <ListBox ItemsSource="{Binding CalculatedCurrencyList}" Height="505" Width="499">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Rate, Converter={StaticResource ValueConverter}, ConverterParameter=abc}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
     </Grid>
 </Page>

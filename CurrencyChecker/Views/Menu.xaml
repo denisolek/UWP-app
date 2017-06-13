@@ -8,11 +8,12 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock HorizontalAlignment="Left" Margin="360,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="289" AllowDrop="True" Text="CURRENCY APP" FontFamily="Lato" FontSize="36" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Margin="259,136,0,0" TextWrapping="Wrap" Text="Check and calculate current currency value !" VerticalAlignment="Top" FontSize="24"/>
-        <Button Content="CHECK" HorizontalAlignment="Left" Margin="360,273,0,0" VerticalAlignment="Top" Width="289" Height="53" FontSize="20" FontWeight="Bold" FontFamily="Lato" Click="Navigate_CurrencyCheck"/>
-        <Button Content="CALCULATE" HorizontalAlignment="Left" Margin="360,366,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="289" Height="53" FontFamily="Lato" Click="Navigate_CurrencyCalc"/>
-        <Button Content="ABOUT" HorizontalAlignment="Left" Margin="360,458,0,0" VerticalAlignment="Top" Height="53" Width="289" FontWeight="Bold" FontFamily="Lato" FontSize="20" Click="Navigate_About"/>
-
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,102">
+            <TextBlock TextWrapping="Wrap" Height="46" Width="289" AllowDrop="True" Text="CURRENCY APP" FontFamily="Lato" FontSize="36" FontWeight="Bold" Margin="0"/>
+            <TextBlock TextWrapping="Wrap" Text="Check and calculate current currency value !" FontSize="24" Margin="0,0,0,70"/>
+            <Button Content="CHECK" Width="289" Height="53" FontSize="20" FontWeight="Bold" FontFamily="Lato" Click="Navigate_CurrencyCheck" HorizontalAlignment="Center" Margin="0,0,0,30"/>
+            <Button Content="CALCULATE" FontSize="20" FontWeight="Bold" Width="289" Height="53" FontFamily="Lato" Click="Navigate_CurrencyCalc" HorizontalAlignment="Center" Margin="0,0,0,30"/>
+            <Button Content="ABOUT" Height="53" Width="289" FontWeight="Bold" FontFamily="Lato" FontSize="20" Click="Navigate_About" HorizontalAlignment="Center"/>
+        </StackPanel>
     </Grid>
 </Page>

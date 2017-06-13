@@ -27,12 +27,12 @@
         <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock TextWrapping="Wrap" Text="Currency checker" FontSize="48" FontFamily="Lato" FontWeight="Bold"/>
         </StackPanel>
-        <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="0,0,0,100">
             <ComboBox ItemsSource="{Binding AvailableCurrencies}"  SelectedValue="{Binding ChoosenCurrency, Mode=TwoWay}" Width="400" Height="60" Header="Select currency to check" PlaceholderText="ex. USD"/>
             <Button Content="CHECK" Width="398" Click="FetchCurrencyData" HorizontalAlignment="Center" Margin="0,30,0,0"/>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <ListBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding CurrencyList}" Height="505" Width="499">
+            <ListBox ItemsSource="{Binding CurrencyList}" Height="505" Width="499">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
