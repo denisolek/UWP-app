@@ -11,21 +11,37 @@
     <Page.Resources>
         <converters:ValueConverter x:Key="ValueConverter"/>
     </Page.Resources>
-    
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ComboBox ItemsSource="{Binding AvailableCurrencies}"  SelectedValue="{Binding ChoosenCurrency, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="224" Height="60" Header="Select currency to check" PlaceholderText="ex. USD" Margin="0,100,0,0"/>
-        <TextBlock  TextWrapping="Wrap" Text="Currency checker" VerticalAlignment="Top" FontSize="20" FontFamily="Lato" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,50,0,0"/>
-        <Button Content="BACK" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" Width="100" Click="Navigate_Back" Margin="600,0,0,700"/>
-        <Button Content="CHECK" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="-0.83,-0.109" Width="119" Click="FetchCurrencyData" Margin="0,0,0,500"/>
-        <ListBox ItemsSource="{Binding CurrencyList}" HorizontalAlignment="Center" Height="289" VerticalAlignment="Center" Width="224">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
-                        <TextBlock Text="{Binding Rate, Converter={StaticResource ValueConverter}, ConverterParameter=abc}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Content="BACK" Height="90" Width="180" Click="Navigate_Back" />
+        </StackPanel>
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock TextWrapping="Wrap" Text="Currency checker" FontSize="48" FontFamily="Lato" FontWeight="Bold"/>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <ComboBox ItemsSource="{Binding AvailableCurrencies}"  SelectedValue="{Binding ChoosenCurrency, Mode=TwoWay}" Width="400" Height="60" Header="Select currency to check" PlaceholderText="ex. USD"/>
+            <Button Content="CHECK" Width="398" Click="FetchCurrencyData" HorizontalAlignment="Center" Margin="0,30,0,0"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <ListBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding CurrencyList}" Height="505" Width="499">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Rate, Converter={StaticResource ValueConverter}, ConverterParameter=abc}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
     </Grid>
 </Page>
