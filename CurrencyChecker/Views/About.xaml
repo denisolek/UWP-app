@@ -8,18 +8,11 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button Content="BACK" HorizontalAlignment="Left" Margin="718,57,0,0" VerticalAlignment="Top" Height="45" Width="100" Click="Navigate_Back"/>
-        <TextBlock HorizontalAlignment="Left" Margin="479,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Lato" FontWeight="Bold">
-            <Run Text="About"/>
-            <LineBreak/>
-            <Run/>
-        </TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="439,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Height="42" Width="123">
-            <Run Text="Denis Olek"/>
-            <LineBreak/>
-            <Run/>
-        </TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="413,257,0,0" TextWrapping="Wrap" Text="denis.olek@gmail.com" VerticalAlignment="Top" FontSize="18"/>
-
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0,0,0,200">
+            <TextBlock Text="About" TextWrapping="Wrap" FontSize="48" FontFamily="Lato" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,100"/>
+            <TextBlock Text="Denis Olek" TextWrapping="Wrap" FontSize="36" FontFamily="Lato" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <TextBlock TextWrapping="Wrap" Text="denis.olek@gmail.com" VerticalAlignment="Top" FontSize="18" HorizontalAlignment="Center" Margin="0"/>
+            <Button Content="BACK" Height="45" Width="180" Click="Navigate_Back" HorizontalAlignment="Center" Margin="0,32,0,0"/>
+        </StackPanel>
     </Grid>
 </Page>
